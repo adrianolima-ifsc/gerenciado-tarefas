@@ -40,4 +40,11 @@ export class ControladorTarefaService {
     this.listas[this._listaAtual]._tarefas.push(tarefa);
     this.salvaListas();
   }
+
+  public excluiTarefa(id: number): void {
+    const tarefas = this.listas[this._listaAtual]._tarefas.filter( 
+      tarefa => tarefa._id !== id );
+    this.listas[this._listaAtual]._tarefas = tarefas;
+    this.salvaListas();
+  }
 }

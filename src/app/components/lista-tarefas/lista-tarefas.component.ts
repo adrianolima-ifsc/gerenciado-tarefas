@@ -27,4 +27,8 @@ export class ListaTarefasComponent {
     this.descricao = '';
   }
 
+  public excluirTarefa(id: number) {
+    this.controlador.excluiTarefa(id);
+  }
+
 }

@@ -1,5 +1,7 @@
-<section class="tarefa">
-    <input type="checkbox" [checked]="concluida">
-    <p>{{ id }}</p>
-    <p>{{ descricao }}</p>
+<section class="tarefa" (click)="mostraForm()">
+    <input type="checkbox" [checked]="tarefa._concluida">
+    <p>{{ tarefa._id }}</p>
+    <p>{{ tarefa._descricao }}</p>
+    <button (click)="excluirTarefa(tarefa._id)">Excluir</button>
 </section>
+<app-tarefa-form *ngIf="formVisivel"></app-tarefa-form>

@@ -4,8 +4,7 @@
 <button (click)="adicionaTarefa()">Nova tarefa</button>
 <section *ngFor="let tarefa of lista._tarefas">
     <app-tarefa
-        [id]="tarefa._id"
-        [descricao]="tarefa._descricao"
-        [concluida]="tarefa._concluida">
+        [tarefa]="tarefa"
+        (exluir)="excluirTarefa($event)">
     </app-tarefa>
 </section>
