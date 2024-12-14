@@ -5,6 +5,8 @@
 <section *ngFor="let tarefa of lista._tarefas">
     <app-tarefa
         [tarefa]="tarefa"
-        (exluir)="excluirTarefa($event)">
+        (exluir)="excluirTarefa($event)"
+        (atualiza)="atualizaTarefa($event)"
+    >
     </app-tarefa>
 </section>

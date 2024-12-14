@@ -1,7 +1,11 @@
-<section class="tarefa" (click)="mostraForm()">
-    <input type="checkbox" [checked]="tarefa._concluida">
+<section class="tarefa" (click)="mostraForm()" *ngIf="!formVisivel">
+    <input type="checkbox" [checked]="tarefa._concluida" />
     <p>{{ tarefa._id }}</p>
     <p>{{ tarefa._descricao }}</p>
     <button (click)="excluirTarefa(tarefa._id)">Excluir</button>
 </section>
-<app-tarefa-form *ngIf="formVisivel"></app-tarefa-form>
+<app-tarefa-form
+    *ngIf="formVisivel"
+    [tarefa]="tarefa"
+    (atualiza)="atualizaTarefa($event)"
+></app-tarefa-form>

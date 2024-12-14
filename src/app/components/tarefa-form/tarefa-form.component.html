@@ -1,1 +1,36 @@
-<p>tarefa-form works!</p>
+<form (ngSubmit)="atualizaTarefa(f)" #f="ngForm">
+    <input
+        type="checkbox"
+        name="concluida-{{ tarefa._id }}"
+        id="concluida-{{ tarefa._id }}"
+        [(ngModel)]="tarefa._concluida"
+    />
+    <input
+        #descricao="ngModel"
+        type="text"
+        name="descricao-{{ tarefa._id }}"
+        id="descricao-{{ tarefa._id }}"
+        [(ngModel)]="tarefa._descricao"
+        required
+        minlength="3"
+    />
+    <label for="email-{{ tarefa._id }}">E-mail</label>
+    <input
+        #email="ngModel"
+        type="email"
+        name="email-{{ tarefa._id }}"
+        id="email-{{ tarefa._id }}"
+        [(ngModel)]="tarefa._email"
+        email
+    />
+    <button type="submit">Salvar</button>
+    <p class="erro__texto" *ngIf="descricao?.errors?.['required']">
+        Este campo é obrigatório
+    </p>
+    <p class="erro__texto" *ngIf="descricao?.errors?.['minlength']">
+        A descrição deve ter pelo menos 3 caracteres.
+    </p>
+    <p class="erro__texto" *ngIf="email?.errors?.['email']">
+        O endereço de e-mail não está na forma correta.
+    </p>
+</form>

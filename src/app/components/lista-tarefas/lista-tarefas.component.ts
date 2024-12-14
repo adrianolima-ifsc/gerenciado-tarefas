@@ -5,6 +5,7 @@ import { EntradaComponent } from '../entrada/entrada.component';
 import { FormsModule } from '@angular/forms';
 import { TarefaComponent } from "../tarefa/tarefa.component";
 import { CommonModule } from '@angular/common';
+import { Tarefa } from '../../model/tarefa';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -29,6 +30,10 @@ export class ListaTarefasComponent {
 
   public excluirTarefa(id: number) {
     this.controlador.excluiTarefa(id);
+  }
+
+  public atualizaTarefa(tarefa: Tarefa) {
+    this.controlador.atualizaTarefa(tarefa);
   }
 
 }
