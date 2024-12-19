@@ -9,11 +9,12 @@ import {
 } from '@angular/core';
 import { TarefaFormComponent } from '../tarefa-form/tarefa-form.component';
 import { Tarefa } from '../../model/tarefa';
+import { TarefaFormReactComponent } from "../tarefa-form-react/tarefa-form-react.component";
 
 @Component({
     selector: 'app-tarefa',
     standalone: true,
-    imports: [CommonModule, TarefaFormComponent],
+    imports: [CommonModule, TarefaFormComponent, TarefaFormReactComponent],
     templateUrl: './tarefa.component.html',
     styleUrl: './tarefa.component.css',
 })

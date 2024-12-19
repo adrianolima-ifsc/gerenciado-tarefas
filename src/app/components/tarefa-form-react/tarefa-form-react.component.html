@@ -1,0 +1,29 @@
+<h2>Formulário Reativo</h2>
+<form (ngSubmit)="atualizaTarefa()" [formGroup]="tarefaForm">
+    <input
+        type="checkbox"
+        formControlName="_concluida"
+        id="concluida-{{ tarefa._id }}"
+    />
+    <input
+        type="text"
+        formControlName="_descricao"
+        id="descricao-{{ tarefa._id }}"
+    />
+    <label for="email-{{ tarefa._id }}">E-mail</label>
+    <input
+        type="email"
+        formControlName="_email"
+        id="email-{{ tarefa._id }}"
+    />
+    <button type="submit">Salvar</button>
+    <p class="erro__texto" *ngIf="tarefaForm.get('_descricao')?.errors?.['required']">
+        Este campo é obrigatório
+    </p>
+    <p class="erro__texto" *ngIf="tarefaForm.get('_descricao')?.errors?.['minlength']">
+        A descrição deve ter pelo menos 3 caracteres.
+    </p>
+    <p class="erro__texto" *ngIf="tarefaForm.get('_email')?.errors?.['email']">
+        O endereço de e-mail não está na forma correta.
+    </p>
+</form>

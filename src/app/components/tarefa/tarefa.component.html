@@ -4,8 +4,13 @@
     <p>{{ tarefa._descricao }}</p>
     <button (click)="excluirTarefa(tarefa._id)">Excluir</button>
 </section>
-<app-tarefa-form
+<!-- <app-tarefa-form
     *ngIf="formVisivel"
     [tarefa]="tarefa"
     (atualiza)="atualizaTarefa($event)"
-></app-tarefa-form>
+></app-tarefa-form> -->
+<app-tarefa-form-react 
+    *ngIf="formVisivel"
+    [tarefa]="tarefa"
+    (atualiza)="atualizaTarefa($event)"
+></app-tarefa-form-react>
